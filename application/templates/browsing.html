@@ -1,0 +1,45 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{% static 'browsing.css'%}" />
+    <title>Browse Event</title>
+  </head>
+  <body>
+    <div class="nev-bar">
+      <div class="nev-bar-mid">
+        <a href="../"
+          ><img src="{% static 'Group 1.png'%}" height="100px"
+        /></a>
+      </div>
+    </div>
+    <div>
+      <div class="container">
+        {% for i in query %}
+          <div class="card">
+            <div class="card-header">
+              <img src="{% static 'event.jpeg'%}" alt="rover" />
+            </div>
+            <div class="card-body">
+              <div class="date-time">
+                <span class="tag tag-teal">Date : {{i.event_date}} </span>
+                <span class="tag tag-pink">Time : {{i.event_time}}</span>
+              </div>
+              <h4>
+                Event Name : {{i.event_name}}
+              </h4>
+              <p>
+                Location : {{i.event_location}}
+              </p>
+                <a class="button-37" href="{{i.id}}">Explore Event</a>
+            </div>
+          </div>
+        {% endfor %}
+    </div>
+  </body>
+</html>
+<!-- HTML !-->

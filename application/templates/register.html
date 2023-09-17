@@ -1,0 +1,80 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{% static 'register.css'%}" />
+    <title>Register for event</title>
+  </head>
+  <body>
+    <div class="nev-bar">
+      <div class="nev-bar-mid">
+        <a href="../"
+          ><img src="{% static 'Group 1.png'%}" height="100px"
+        /></a>
+      </div>
+    </div>
+    <div class="main">
+      <div class="row">
+        <div class="column column-left">
+          <div class="card-body">
+            <h2>Welcome to event {{query.event_name}}</h2>
+            <div class="divider"></div>
+            <div class="date-time">
+              <h4 >Date : {{query.event_date}} </h4>
+              <h4> time : {{query.event_time}}</h4>
+            </div>
+            <div class="location">
+              <h3>Location:{{query.event_location}}</h3>
+            </div>
+           <div class="Description">
+            <p>Description Of The Event: {{query.event_detail}}</p>
+           </div>
+          </div>
+          <div class="form">
+            <h2>Register for Event</h2>
+            <div class="divider"></div>
+            <form action="registration_done/{{id}}" method="post">
+              {% csrf_token%}
+              <div class="form-item">
+                <label for="your_name">Your name: </label>
+                <input
+                  class="input"
+                  id="your_name"
+                  type="text"
+                  name="your_name"
+                  required
+                />
+              </div>
+              <div class="form-item">
+                <label for="email">Email address: </label>
+                <input
+                  class="input"
+                  id="email"
+                  type="email"
+                  name="email"
+                  required
+                />
+              </div>
+              <div class="form-item">
+                <input
+                type="submit"
+                data-wait="Please wait..."
+                value="Submit"
+                class="button-37"
+              />
+              </div>
+            </form>
+          </div>
+        </div>
+        <div class="column column-right">
+          <img src="{% static 'holding-green-earth-19090463.jpg'%}" width="500px" >
+        </div>
+      </div>
+
+    </div>
+  </body>
+</html>
